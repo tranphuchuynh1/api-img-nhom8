@@ -1,0 +1,131 @@
+﻿@model MVCImage.Models.DTO.RegisterDTO
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+        }
+
+        .register-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+            .register-container h2 {
+                margin-bottom: 20px;
+                color: white;
+            }
+
+            .register-container label {
+                color: white;
+            }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+        }
+
+            .form-control:focus {
+                background: rgba(255, 255, 255, 0.2);
+                box-shadow: none;
+                color: white;
+            }
+
+        .btn-custom {
+            background-color: #2e8b57;
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            width: 100%;
+        }
+
+            .btn-custom:hover {
+                background-color: #2e8b57;
+            }
+
+        .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: #2e8b57;
+            border-color: #2e8b57;
+        }
+
+        .login-link {
+            margin-top: 10px;
+            color: white;
+        }
+
+            .login-link a {
+                color: #2e8b57;
+            }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>REGISTER</h2>
+        <form asp-action="Register" method="post" id="register-form" onsubmit="return confirmPassword();">
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" required />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" required />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Roles"></label>
+                <input asp-for="Roles" class="form-control" />
+                <span asp-validation-for="Roles" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-custom">Đăng ký</button>
+        </form>
+        <div class="login-link">
+            <a asp-controller="Account" asp-action="Login">Đăng nhập</a>
+        </div>
+    </div>
+    <script>
+        function confirmPassword() {
+            var password = document.getElementById("Password").value;
+            var confirmPassword = document.getElementById("ConfirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Mật khẩu Nhập lại không trùng khớp!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

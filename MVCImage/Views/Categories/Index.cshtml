@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MVCImage.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="container mt-5">
+
+    <h1 class="my-4"><i class="fa-solid fa-table-list"></i>Danh Mục</h1>
+    <a asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i> Tạo Mới</a>
+
+
+    <table class="table table-hover shadow-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Description)
+                </th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-primary btn-sm mx-1"><i class="bi bi-pencil-square"></i> Sửa</a>
+                        <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-info btn-sm mx-1"><i class="bi bi-info-circle"></i> Chi tiết</a>
+                        <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger btn-sm mx-1"><i class="bi bi-trash"></i> Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,61 @@
+﻿@model MVCImage.Models.Image
+
+@{
+    ViewData["Title"] = "Chi Tiết Ảnh";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h3 class="card-title"><i class="bi bi-image"></i> @ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Title)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.ImageUrl)
+                        </dt>
+                        <dd class="col-sm-9">
+                            <img src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded" style="max-width: 100%; height: auto;" />
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.UploadDate)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.UploadDate)
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.CategoryId)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.CategoryId)
+                        </dd>
+                    </dl>
+                    <div class="text-center mt-4">
+                        <a asp-action="Edit" asp-route-id="@Model.ImageId" class="btn btn-primary "><i class="bi bi-pencil-square"></i> Sửa</a>
+                        <a asp-action="Index" class="btn btn-secondary  ml-2"><i class="bi bi-arrow-left"></i> Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIImage", "APIImage\APIImage.csproj", "{74546222-9713-4EBD-BB4E-393C6A0016BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B1B611C-23F6-4BC5-86ED-79306B7D40A0} = {1B1B611C-23F6-4BC5-86ED-79306B7D40A0}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCImage", "MVCImage\MVCImage.csproj", "{1B1B611C-23F6-4BC5-86ED-79306B7D40A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74546222-9713-4EBD-BB4E-393C6A0016BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74546222-9713-4EBD-BB4E-393C6A0016BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74546222-9713-4EBD-BB4E-393C6A0016BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74546222-9713-4EBD-BB4E-393C6A0016BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B1B611C-23F6-4BC5-86ED-79306B7D40A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1B611C-23F6-4BC5-86ED-79306B7D40A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1B611C-23F6-4BC5-86ED-79306B7D40A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1B611C-23F6-4BC5-86ED-79306B7D40A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F1DA339-C27A-4659-A94B-3AD81C3AF6B9}
+	EndGlobalSection
+EndGlobal

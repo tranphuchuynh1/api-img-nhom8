@@ -1,0 +1,14 @@
+/vs
+echo "bin/" >> .gitignore
+echo "obj/" >> .gitignore
+echo "*.exe" >> .gitignore
+echo "*.dll" >> .gitignore
+echo "*.pdb" >> .gitignore
+# Ignore build files
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.vs.bin
+.vs/s

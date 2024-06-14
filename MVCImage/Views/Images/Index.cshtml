@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVCImage.Models.Image>
+
+@{
+    ViewData["Title"] = "Hình Ảnh";
+}
+<div class="container mt-5">
+    <h1 class="mb-4"><i class="bi bi-images"></i>@ViewData["Title"]</h1>
+    <p>
+        <a asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i> Tạo Mới</a>
+    </p>
+    <table class="table table-striped shadow-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().Title)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Description)</th>
+                <th>@Html.DisplayNameFor(model => model.First().CategoryId)</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CategoryId)</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.ImageId" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Sửa</a>
+                        <a asp-action="Details" asp-route-id="@item.ImageId" class="btn btn-info btn-sm"><i class="bi bi-info-circle"></i> Chi Tiết</a>
+                        <a asp-action="Delete" asp-route-id="@item.ImageId" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

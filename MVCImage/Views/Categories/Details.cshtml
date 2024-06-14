@@ -1,0 +1,66 @@
+﻿@model MVCImage.Models.Category
+
+@{
+    ViewData["Title"] = "Chi Tiết Danh Mục";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h3 class="card-title"><i class="bi bi-folder2-open"></i> @ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h4 class="text-primary">Thông Tin Danh Mục</h4>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-4 font-weight-bold">Tên</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+                            <dt class="col-sm-4 font-weight-bold">Mô Tả</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+                        </dl>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-primary">Hình Ảnh</h4>
+                        <hr />
+                        <div class="row">
+                            @foreach (var image in Model.Images)
+                            {
+                                <div class="col-md-6 mb-3">
+                                    <div class="card">
+                                        <img src="@image.ImageUrl" alt="@image.Title" class="card-img-top" style="height: 300px; object-fit: cover;" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">@image.Title</h5>
+                                            <p style="font-family:Comic Sans MS;" class="card-text">@image.Description</p>
+                                            <div class="star-rating">
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a asp-action="Edit" asp-route-id="@Model.CategoryId" class="btn btn-primary">Chỉnh Sửa</a>
+                        <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Quay Lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

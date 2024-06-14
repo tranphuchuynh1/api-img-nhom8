@@ -1,0 +1,66 @@
+﻿@model MVCImage.Models.Image
+
+@{
+    ViewData["Title"] = "Xóa Ảnh";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title"><i class="bi bi-trash"></i> @ViewData["Title"]</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="text-danger">Cân nhắc trước khi xóa hình ảnh!</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Title)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.ImageUrl)
+                        </dt>
+                        <dd class="col-sm-9">
+                            <img src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded" style="max-width: 150px; height: auto;" />
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.UploadDate)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.UploadDate)
+                        </dd>
+                        <dt class="col-sm-3 font-weight-bold">
+                            @Html.DisplayNameFor(model => model.CategoryId)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.CategoryId)
+                        </dd>
+                    </dl>
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="ImageId" />
+                        <div class="text-center">
+                            <input type="submit" value="Xóa" class="btn btn-danger " />
+                            <a asp-action="Index" class="btn btn-secondary  ml-2"><i class="bi bi-arrow-left"></i> Quay lại</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

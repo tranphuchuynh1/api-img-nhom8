@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MVCImage.Models.History>
+
+@{
+    ViewData["Title"] = "Lịch Sử";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Lịch Sử</h1>
+    <form asp-action="Clear" method="post">
+        <button type="submit" class="btn btn-danger mb-3">Xóa tất cả lịch sử</button>
+    </form>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Action</th>
+                <th>Entity</th>
+                <th>EntityId</th>
+                <th>Details</th> <!-- Thêm cột Details -->
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="5" class="text-center">Không có lịch sử</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Action</td>
+                        <td>@item.Entity</td>
+                        <td>@item.EntityId</td>
+                        <td>@item.Details</td> <!-- Hiển thị Details -->
+                        <td>@item.Timestamp.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
